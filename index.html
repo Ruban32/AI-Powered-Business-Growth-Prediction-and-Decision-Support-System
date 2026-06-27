@@ -5,293 +5,213 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AI Business Growth Dashboard</title>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <style>
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    background:#f4f7fc;
-    display:flex;
-}
-
-.sidebar{
-    width:250px;
-    height:100vh;
-    background:#111827;
-    color:white;
-    padding:20px;
-    position:fixed;
-}
-
-.sidebar h2{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.sidebar ul{
-    list-style:none;
-}
-
-.sidebar ul li{
-    padding:15px;
-    margin:10px 0;
-    background:#1f2937;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-.sidebar ul li:hover{
-    background:#2563eb;
-}
-
-.main{
-    margin-left:250px;
-    width:calc(100% - 250px);
-    padding:25px;
+background:#f4f6f9;
 }
 
 .header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
+background:#111827;
+color:white;
+padding:20px;
+text-align:center;
 }
 
-.header h1{
-    color:#111827;
+.container{
+width:90%;
+max-width:1000px;
+margin:20px auto;
 }
 
 .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    margin-bottom:25px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-bottom:20px;
 }
 
 .card{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 3px 15px rgba(0,0,0,0.08);
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
+text-align:center;
 }
 
 .card h3{
-    color:#6b7280;
-    margin-bottom:10px;
+color:#666;
+margin-bottom:10px;
 }
 
 .card p{
-    font-size:28px;
-    font-weight:bold;
-    color:#2563eb;
+font-size:24px;
+font-weight:bold;
+color:#2563eb;
 }
 
-.chart-container{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 3px 15px rgba(0,0,0,0.08);
-    margin-bottom:25px;
-}
-
-.form-card{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 3px 15px rgba(0,0,0,0.08);
-    margin-bottom:25px;
+.form-box{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 input{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    border:1px solid #ddd;
-    border-radius:8px;
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:5px;
 }
 
 button{
-    width:100%;
-    padding:12px;
-    border:none;
-    background:#2563eb;
-    color:white;
-    font-size:16px;
-    border-radius:8px;
-    cursor:pointer;
+width:100%;
+padding:12px;
+background:#2563eb;
+color:white;
+border:none;
+border-radius:5px;
+font-size:16px;
+cursor:pointer;
 }
 
 button:hover{
-    background:#1d4ed8;
+background:#1d4ed8;
 }
 
 .result{
-    margin-top:15px;
-    padding:15px;
-    background:#eff6ff;
-    border-radius:8px;
-    display:none;
+display:none;
+margin-top:20px;
+padding:20px;
+background:#e0f2fe;
+border-radius:10px;
 }
 
-.recommendations{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 3px 15px rgba(0,0,0,0.08);
+.result h2{
+margin-bottom:10px;
 }
 
-.recommendations ul{
-    margin-top:10px;
-    padding-left:20px;
-}
-
-.recommendations li{
-    margin:10px 0;
-}
-
-@media(max-width:768px){
-    .sidebar{
-        display:none;
-    }
-
-    .main{
-        margin-left:0;
-        width:100%;
-    }
-}
 </style>
 </head>
 <body>
 
-<div class="sidebar">
-    <h2>AI Business</h2>
-
-    <ul>
-        <li>Dashboard</li>
-        <li>Forecast</li>
-        <li>Analytics</li>
-        <li>Reports</li>
-        <li>Settings</li>
-    </ul>
+<div class="header">
+<h1>AI-Powered Business Growth Prediction System</h1>
+<p>Final Year AI & Data Science Project</p>
 </div>
 
-<div class="main">
+<div class="container">
 
-    <div class="header">
-        <h1>Business Growth Dashboard</h1>
-        <h3>AI & Data Science Project</h3>
-    </div>
+<div class="cards">
 
-    <div class="cards">
-        <div class="card">
-            <h3>Total Revenue</h3>
-            <p>₹95K</p>
-        </div>
+<div class="card">
+<h3>Total Revenue</h3>
+<p>₹95K</p>
+</div>
 
-        <div class="card">
-            <h3>Total Profit</h3>
-            <p>₹43K</p>
-        </div>
+<div class="card">
+<h3>Total Profit</h3>
+<p>₹43K</p>
+</div>
 
-        <div class="card">
-            <h3>Growth Rate</h3>
-            <p>18%</p>
-        </div>
+<div class="card">
+<h3>Growth Rate</h3>
+<p>18%</p>
+</div>
 
-        <div class="card">
-            <h3>Health Score</h3>
-            <p>85%</p>
-        </div>
-    </div>
+<div class="card">
+<h3>Health Score</h3>
+<p>85%</p>
+</div>
 
-    <div class="chart-container">
-        <h2>Monthly Sales Trend</h2>
-        <canvas id="salesChart"></canvas>
-    </div>
+</div>
 
-    <div class="form-card">
-        <h2>AI Sales Prediction</h2>
+<div class="form-box">
 
-        <input type="number" id="expenses" placeholder="Enter Expenses">
+<h2>Business Growth Prediction</h2>
 
-        <input type="number" id="customers" placeholder="Enter Customers">
+<input type="number" id="expenses" placeholder="Enter Expenses">
 
-        <button onclick="predictSales()">Predict Growth</button>
+<input type="number" id="customers" placeholder="Enter Customers">
 
-        <div class="result" id="result">
-            <h3 id="prediction"></h3>
-        </div>
-    </div>
+<button onclick="predictSales()">Predict Growth</button>
 
-    <div class="recommendations">
-        <h2>AI Recommendations</h2>
+<div class="result" id="result">
 
-        <ul>
-            <li>Increase marketing for top-selling products.</li>
-            <li>Reduce operational expenses by 10%.</li>
-            <li>Focus on customer retention strategies.</li>
-            <li>Expand inventory for high-demand products.</li>
-        </ul>
-    </div>
+<h2 id="sales"></h2>
+
+<h3 id="health"></h3>
+
+<p id="recommendation"></p>
+
+</div>
+
+</div>
 
 </div>
 
 <script>
-const ctx = document.getElementById('salesChart');
-
-new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct'],
-        datasets: [{
-            label: 'Sales',
-            data: [50000,55000,60000,65000,70000,75000,80000,85000,90000,95000],
-            borderWidth: 3,
-            tension: 0.4
-        }]
-    },
-    options: {
-        responsive: true
-    }
-});
 
 async function predictSales(){
 
-    const expenses = document.getElementById("expenses").value;
-    const customers = document.getElementById("customers").value;
+let expenses = document.getElementById("expenses").value;
+let customers = document.getElementById("customers").value;
 
-    try{
-
-        const response = await fetch("http://127.0.0.1:5000/predict",{
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body:JSON.stringify({
-                expenses:expenses,
-                customers:customers
-            })
-        });
-
-        const data = await response.json();
-
-        document.getElementById("result").style.display="block";
-        document.getElementById("prediction").innerHTML =
-        "Predicted Sales: ₹" + data.predicted_sales;
-
-    }catch(error){
-
-        document.getElementById("result").style.display="block";
-        document.getElementById("prediction").innerHTML =
-        "Backend not connected. Start Flask server.";
-    }
+if(expenses === "" || customers === ""){
+alert("Please enter all values");
+return;
 }
+
+try{
+
+const response = await fetch("http://127.0.0.1:5000/predict",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+expenses:expenses,
+customers:customers
+})
+});
+
+const data = await response.json();
+
+document.getElementById("result").style.display="block";
+
+document.getElementById("sales").innerHTML =
+"Predicted Sales: ₹" + data.predicted_sales;
+
+document.getElementById("health").innerHTML =
+"Health Score: " + data.health_score + "%";
+
+document.getElementById("recommendation").innerHTML =
+data.recommendation;
+
+}
+catch(error){
+
+document.getElementById("result").style.display="block";
+
+document.getElementById("sales").innerHTML =
+"Backend Not Connected";
+
+document.getElementById("health").innerHTML = "";
+
+document.getElementById("recommendation").innerHTML =
+"Start Flask server using: python app.py";
+}
+
+}
+
 </script>
 
 </body>
